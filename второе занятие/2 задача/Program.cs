@@ -1,7 +1,6 @@
 ﻿// Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
-Console.WriteLine("введите число ");
-int number = int.Parse(Console.ReadLine());
-number = Math.Abs(number);
+void search (int number)
+{
 if (number < 100)
     Console.WriteLine("третьей цифры нет");
 else if (number < 1000)
@@ -12,3 +11,9 @@ else
         number /= 10;
     Console.WriteLine (number % 10);
 }
+}
+
+Console.WriteLine("введите число ");
+int num = int.Parse(Console.ReadLine());
+num = Math.Abs(num);
+search(num);
