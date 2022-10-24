@@ -1,36 +1,19 @@
-﻿/*	
-0 1 2 3 4
-1 0 1 2 3
-2 1 0 1 2
-3 2 1 0 1
-4 3 2 1 0*/
-int[,] array_diag(int [,] a, int N)
+﻿// возведение в степень числа с помощью рекурсии
+int power (int a, int n)
 {
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < N; j++)
-        {
-            if (j <= i)
-                a[i, j] = i - j;
-            else 
-                a[i, j] = j - i;
-        }
-    return a;
-}
-void show (int[,] a, int N)
-{
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-            Console.Write($"{a[i, j]} ");
-        Console.WriteLine();
-    }
+    if (n == 0)
+        return 1;
+    else if (n == 1)
+        return a;
+    else
+        return (a * power (a, n - 1));
 }
 
-int _N;
-Console.WriteLine("Введите число N");
-_N = int.Parse(Console.ReadLine());
-int [,] array = new int [_N ,_N]; 
 
-array = array_diag(array, _N);
-show(array, _N);
-
+int a, n; 
+Console.Write("Введите число: ");
+a = int.Parse(Console.ReadLine());
+Console.Write("Введите желаемую степень: ");
+n = int.Parse(Console.ReadLine());
+int st = power (a, n);
+Console.Write(st);
